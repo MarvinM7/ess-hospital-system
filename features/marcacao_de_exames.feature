@@ -9,3 +9,5 @@ Quando eu tento marcar um exame num horário disponível
 Então eu vejo a confirmação da marcação
 
 falha 1
+
+falha 2
