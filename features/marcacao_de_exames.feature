@@ -11,3 +11,9 @@ Então eu vejo a confirmação da marcação
 falha 1
 
 falha 2
+
+Cenário: Marcação de exame sem escolher horário
+Dado que eu seja um usuário da rede hospitalar
+E eu esteja logado no sistema
+Quando eu tento marcar um exame sem escolher o horário
+Então eu vejo um aviso na tela de que não foi possível realizar a marcação devido ao usuário não ter escolhido um horário
