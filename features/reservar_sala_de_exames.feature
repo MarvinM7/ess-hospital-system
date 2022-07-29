@@ -4,7 +4,7 @@ Feature: Reservar Salas de Exames
 	So that eu possa realizar exames nos horários e datas marcadas de forma que não haja conflitos.
 
 Cenário 1:
-	Given
+	Given And
 	When 
 	Then
 
