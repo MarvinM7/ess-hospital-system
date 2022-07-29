@@ -11,5 +11,6 @@ Cenário 1:
 Cenário 2:
 	Given
 	And
+	And
 	When 
 	Then
