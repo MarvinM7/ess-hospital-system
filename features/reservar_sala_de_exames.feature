@@ -7,6 +7,7 @@ Cenário 1:
 	Given And
 	When 
 	Then
+	And
 
 Cenário 2:
 	Given
@@ -16,6 +17,13 @@ Cenário 2:
 	Then
 
 Cenário 3:
+	Given
+	And
+	And
+	When 
+	Then
+
+Cenário 4:
 	Given
 	And
 	And
