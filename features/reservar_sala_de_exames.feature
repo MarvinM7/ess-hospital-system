@@ -14,3 +14,10 @@ Cenário 2:
 	And
 	When 
 	Then
+
+Cenário 2:
+	Given
+	And
+	And
+	When 
+	Then
