@@ -1,7 +1,8 @@
 Feature: A patient registers on the waiting list
 
-Scenario Outline: 
+Scenario Outline:
 Given
 And
 Then
-Then
+
+Scenario Outline:
