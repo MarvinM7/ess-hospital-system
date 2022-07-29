@@ -21,3 +21,10 @@ Cenário 3:
 	And
 	When 
 	Then
+
+Cenário 4:
+	Given
+	And
+	And
+	When 
+	Then
