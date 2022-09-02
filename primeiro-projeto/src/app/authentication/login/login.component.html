@@ -23,7 +23,7 @@
 							<form method="POST" class="my-login-validation" novalidate="">
 								<div class="form-group">
 									<label for="email">E-mail Address</label>
-									<input id="email" type="email" class="form-control" name="email" value="" required autofocus>
+									<input [(ngModel)]='usuario.email' id="email" type="email" class="form-control" name="email" value="" required autofocus>
 									<div class="invalid-feedback">
 										Email is invalid
 									</div>
@@ -31,13 +31,13 @@
 
 								<div class="form-group">
 									<label for="password">Password
-										<a href="/forgot" class="float-right">
+										<a routerLink="/forgot" class="float-right">
 											Forgot Password?
 										</a>
 									</label>
-									<input id="password" type="password" class="form-control" name="password" required data-eye>
+									<input [(ngModel)]='usuario.senha' id="password" type="password" class="form-control" name="password" required data-eye>
 								    <div class="invalid-feedback">
-								    	Password is required
+								    	Password is require
 							    	</div>
 								</div>
 
@@ -49,12 +49,12 @@
 								</div>
 
 								<div class="form-group m-0">
-									<button type="submit" class="btn btn-primary btn-block">
+									<button type="submit" class="btn btn-primary btn-block" (click)="fazerLogin()">
 										Login
 									</button>
 								</div>
 								<div class="mt-4 text-center">
-									Don't have an account? <a href="register.html">Create One</a>
+									Don't have an account? <a routerLink="/register">Create One</a>
 								</div>
 							</form>
 						</div>

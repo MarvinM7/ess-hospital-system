@@ -6,6 +6,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { FormsModule } from '@angular/forms';
+//import { HttpModule } fro
 //import { AuthenticationModule } from './authentication/authentication.module';
 
 
@@ -31,7 +33,9 @@ import { HomepageComponent } from './homepage/homepage.component';
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    FormsModule
+   // HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]
