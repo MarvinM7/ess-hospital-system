@@ -14,37 +14,34 @@
 		<div class="container h-100">
 			<div class="row justify-content-md-center h-100">
 				<div class="card-wrapper">
-					<div class="brand">
-						<img src="img/logo.jpg" alt="logo">
-					</div>
 					<div class="card fat">
 						<div class="card-body">
 							<h4 class="card-title">Login</h4>
 							<form method="POST" class="my-login-validation" novalidate="">
 								<div class="form-group">
-									<label for="email">E-mail Address</label>
-									<input [(ngModel)]='usuario.email' id="email" type="email" class="form-control" name="email" value="" required autofocus>
+									<label for="cpf">CPF</label>
+									<input [(ngModel)]='usuario.cpf' id="cpf" type="cpf" class="form-control" name="cpf" value="" required autofocus>
 									<div class="invalid-feedback">
-										Email is invalid
+										CPF inválido
 									</div>
 								</div>
 
 								<div class="form-group">
-									<label for="password">Password
+									<label for="password">Senha
 										<a routerLink="/forgot" class="float-right">
-											Forgot Password?
+											Esqueceu a senha?
 										</a>
 									</label>
 									<input [(ngModel)]='usuario.senha' id="password" type="password" class="form-control" name="password" required data-eye>
 								    <div class="invalid-feedback">
-								    	Password is require
+								    	Senha incorreta
 							    	</div>
 								</div>
 
 								<div class="form-group">
 									<div class="custom-checkbox custom-control">
 										<input type="checkbox" name="remember" id="remember" class="custom-control-input">
-										<label for="remember" class="custom-control-label">Remember Me</label>
+										<label for="remember" class="custom-control-label">Lembrar de mim</label>
 									</div>
 								</div>
 
@@ -54,12 +51,12 @@
 									</button>
 								</div>
 								<div class="mt-4 text-center">
-									Don't have an account? <a routerLink="/register">Create One</a>
+									Não tem uma conta? <a routerLink="/register">Crie uma</a>
 								</div>
 							</form>
 						</div>
 					</div>
-	
+
 				</div>
 			</div>
 		</div>

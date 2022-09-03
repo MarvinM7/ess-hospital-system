@@ -1,14 +1,14 @@
 export class User {
     nome: String;
     senha: String;
-    email: String;
+    cpf: String;
 
     constructor(){
      /*   this.nome = nome;
         this.senha = senha;
-        this.email = email;*/
+        this.cpf = cpf;*/
         this.nome ='';
         this.senha ='';
-        this.email='';
+        this.cpf='';
     }
 }
