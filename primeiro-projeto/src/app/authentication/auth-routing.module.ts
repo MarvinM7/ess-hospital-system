@@ -10,9 +10,6 @@ const authRoutes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'forgot', component: ForgotComponent},
   { path: 'register', component: RegisterComponent},
-
-
-
 ];
 
 @NgModule({

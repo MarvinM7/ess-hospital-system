@@ -16,6 +16,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { RodapeComponent } from './rodape/rodape.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { AppointmentComponent } from './appointment/appointment.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { HomepageComponent } from './homepage/homepage.component';
     ToolbarComponent,
     CarouselComponent,
     RodapeComponent,
-    HomepageComponent
+    HomepageComponent,
+    AppointmentComponent
   ],
   imports: [
     BrowserModule,
