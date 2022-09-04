@@ -4,6 +4,7 @@ import { AuthenticationModule } from './authentication/authentication.module';
 
 import { HomepageComponent } from './homepage/homepage.component';
 import { AppointmentComponent } from './appointment/appointment.component';
+
 import { ContactComponent } from './contact/contact.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 

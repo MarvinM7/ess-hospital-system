@@ -1,3 +1,4 @@
+
 .content {
   display: flex;
   flex-direction: column;
@@ -110,4 +111,5 @@
   .carousel-caption p {
     display: none;
   }
+
 }
