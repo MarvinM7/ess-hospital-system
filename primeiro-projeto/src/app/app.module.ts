@@ -17,6 +17,9 @@ import { CarouselComponent } from './carousel/carousel.component';
 import { RodapeComponent } from './rodape/rodape.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { AppointmentComponent } from './appointment/appointment.component';
+import { ScheduleAppointmentComponent } from './schedule-appointment/schedule-appointment.component';
+import { ContactComponent } from './contact/contact.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 
 @NgModule({
@@ -26,7 +29,10 @@ import { AppointmentComponent } from './appointment/appointment.component';
     CarouselComponent,
     RodapeComponent,
     HomepageComponent,
-    AppointmentComponent
+    AppointmentComponent,
+    ScheduleAppointmentComponent,
+    ContactComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,

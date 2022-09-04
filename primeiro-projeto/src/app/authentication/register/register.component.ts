@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
 
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -37,7 +38,11 @@ export class RegisterComponent implements OnInit {
   }
   constructor(private http: HttpClient) { }
 
+
   ngOnInit(): void {
+  }
+
+  fazerRegister(){
   }
 
 }
