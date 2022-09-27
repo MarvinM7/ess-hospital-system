@@ -1,0 +1,22 @@
+.bg-dark {
+  background-color: #212529!important;
+}
+
+.navbar {
+  position: fixed;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+}
+
+
+.spacer {
+  flex: 12 12;
+}
+
+.mat-button-base {
+  margin: 8px 8px 8px 0;
+}

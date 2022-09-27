@@ -1,0 +1,173 @@
+ <section class="container">
+    <form #f="ngForm"(ngSubmit)="onSubmit(f)">
+      
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-8 col-xl-6">
+          <div class="row">
+            <div class="col text-center">
+              <h2>Cadastro</h2>
+            </div>
+          </div>
+          <div class="row align-items-center mt-4">
+            <div class="col">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadio" id="inlineRadio1" value="option1" required>
+                <label class="form-check-label" for="inlineRadio1">Paciente</label>
+            </div>
+            </div>
+            <div class="col">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadio" id="inlineRadio2" value="option2">
+                <label class="form-check-label" for="inlineRadio2">Médico</label>
+            </div>
+            </div>
+          </div>
+          
+          <div class="row align-items-center">
+            <div class="col mt-4">
+              <label for="nome">Nome Completo</label>
+              <input type="text" class="form-control" placeholder="Nome" name="nome" ngModel #nome="ngModel" required>
+              <div *ngIf="!nome.valid && nome.touched" class="alert alert-danger" role="alert">
+                Nome é obrigatório.
+              </div>
+            </div>
+          </div>
+          <div class="row align-items-center mt-4">
+            <div class="col">
+              <label for="cpf">CPF</label>
+              <input type="text" class="form-control" placeholder="CPF" name="cpf" ngModel #cpf="ngModel" required pattern="[0-9]{3}\.?[0-9]{3}\.?[0-9]{3}\-?[0-9]{2}">
+              <div *ngIf="!cpf.valid && cpf.touched" class="alert alert-danger" role="alert">
+                CPF é obrigatório.
+              </div>
+            </div>
+            <div class="col">
+              <label for="telefone">Telefone</label>
+              <input type="tel" id="telNo" class="form-control" placeholder="Telefone" name="telefone" ngModel #telefone="ngModel" required tel>
+              <div *ngIf="!telefone.valid && telefone.touched" class="alert alert-danger" role="alert">
+                Telefone é obrigatório.
+              </div>
+            </div>
+          </div>
+          <div class="row align-items-center mt-4">
+            <div class="col">
+              <label for="email">E-mail</label>
+              <input type="email" class="form-control" placeholder="nome@email.com" required name="email" ngModel #email="ngModel" email>
+              <div *ngIf="!email.valid && email.touched" class="alert alert-danger" role="alert">
+                E-mail é obrigatório.
+              </div>
+            </div>
+          </div>
+          <div class="row align-items-center mt-4">
+            <div class="col">
+              <label for="senha">Senha</label>
+              <input type="password" class="form-control" placeholder="Senha" name="senha" ngModel #senha="ngModel"required>
+              <div *ngIf="!senha.valid && senha.touched" class="alert alert-danger" role="alert">
+                Senha é obrigatória.
+              </div>
+            </div>
+            <div class="col">
+              <label for="senhaConfirmada">Confirme sua senha</label>
+              <input type="password" class="form-control" placeholder="Senha" name="senhaConfirmada" ngModel required #senhaConfirmada="ngModel">
+              <div *ngIf="!senhaConfirmada.valid && senhaConfirmada.touched" class="alert alert-danger" role="alert">
+                Senha é obrigatória.
+              </div>
+            </div>
+          </div>
+          <div class="row align-items-center mt-4">
+            <div class="col">
+              <label for="plano">Selecione seu plano de saúde</label>
+              <select class="form-select" aria-label="Selecione seu plano de saúde" required>
+                <option disabled selected hidden value="">Plano de saúde</option>
+                <option value="1" required>Plano 1</option>
+                <option value="2">Plano 2</option>
+              </select>
+            </div>
+          </div>
+          <div class="row align-items-center mt-4">
+            <div class="col">
+              <label for="genero">Gênero</label>
+              <select class="form-select" aria-label="Gênero" required >
+                <option disabled selected hidden value="">Gênero</option>
+                <option value="fem" >Feminino</option>
+                <option value="masc">Masculino</option>
+              </select>
+            </div>
+            <div class="col">
+              <label for="dataNasc">Data de nascimento</label>
+              <input type="date" class="form-control" placeholder="Data de Nascimento" name="dataNasc" ngModel required>
+            </div>
+          </div>
+          <div class="row align-items-center mt-4">
+            <div class="col">
+              <label for="cep">CEP</label>
+              <input type="text" class="form-control" placeholder="CEP" name="cep" ngModel required #cep="ngModel" (blur)="consultaCEP(cep.value, f)">
+              <div *ngIf="!cep.valid && cep.touched" class="alert alert-danger" role="alert">
+                CEP é obrigatório.
+              </div>
+            </div>
+            <div class="col">
+
+            </div>
+          </div>
+          <div class="row align-items-center mt-4">
+            <div class="col">
+              <label for="Rua">Rua</label>
+              <input type="text" class="form-control" placeholder="Rua" name="rua" ngModel #rua="ngModel"required>
+              <div *ngIf="!rua.valid && rua.touched" class="alert alert-danger" role="alert">
+                Rua é obrigatória.
+              </div>
+            </div>
+            <div class="col">
+              <label for="Bairro">Bairro</label>
+              <input type="text" class="form-control" placeholder="Bairro" name="bairro" ngModel #bairro="ngModel"required>
+              <div *ngIf="!bairro.valid && bairro.touched" class="alert alert-danger" role="alert">
+                Bairro é obrigatório.
+              </div>
+            </div>
+          </div>
+          <div class="row align-items-center mt-4">
+            <div class="col">
+              <label for="numero">Número</label>
+              <input type="text" class="form-control" placeholder="Nº" name="numero" ngModel #numero="ngModel" required pattern="^[0-9]*$">
+              <div *ngIf="!numero.valid && numero.touched" class="alert alert-danger" role="alert">
+                Número é obrigatório.
+              </div>
+            </div>
+            <div class="col">
+              <label for="complemento">Complemento</label>
+              <input type="text" class="form-control" placeholder="Complemento" name="complemento" ngModel>
+            </div>
+          </div>
+          <div class="row align-items-center mt-4">
+            <div class="col">
+              <label for="cidade">Cidade</label>
+              <input type="text" class="form-control" placeholder="Cidade" name="cidade" ngModel #cidade="ngModel" required>
+              <div *ngIf="!cidade.valid && cidade.touched" class="alert alert-danger" role="alert">
+                Cidade é obrigatória.
+              </div>
+            </div>
+            <div class="col">
+              <label for="estado">Estado</label>
+              <input type="text" class="form-control" placeholder="Estado" name="estado" ngModel #estado="ngModel" required>
+              <div *ngIf="!estado.valid && estado.touched" class="alert alert-danger" role="alert">
+                Estado é obrigatório.
+              </div>
+            </div>
+          </div>
+          <div class="row justify-content-start mt-4">
+            <div class="col">
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" name="termos" ngModel required>
+                  Eu li e concordo com os <a href="">Termos e Condições</a>
+                </label>
+              </div>
+
+              <button type="submit" class="btn btn-primary mt-4" [disabled]="!f.valid">Cadastrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </section>
+
