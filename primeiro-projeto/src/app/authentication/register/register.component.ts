@@ -51,6 +51,7 @@ export class RegisterComponent implements OnInit {
   }
 
   async handleRegister(
+    //usertype: boolean,
     name: string,
     cpf: string,
     phone: string,

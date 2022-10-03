@@ -21,7 +21,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes), AuthenticationModule],
+  imports: [RouterModule.forRoot(routes, {anchorScrolling: 'enabled'}), AuthenticationModule],
   exports: [RouterModule]
 })
 

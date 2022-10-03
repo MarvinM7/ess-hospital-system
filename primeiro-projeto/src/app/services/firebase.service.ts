@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 interface SignInProps {
   cpf: string,
@@ -64,8 +64,6 @@ export class AuthService {
   }: SignUpProps) {
     const response = await this.firebaseAuth.createUserWithEmailAndPassword(cpf + '@user.com', password)
 
-    this.isLoggedIn = true;
-
     localStorage.setItem('user', JSON.stringify(response.user));
 
     this.firestore.collection('users').doc(response.user?.uid).set({
@@ -82,4 +80,6 @@ export class AuthService {
     localStorage.removeItem('user');
     this.isLoggedIn = false;
   }
+
+  
 }
