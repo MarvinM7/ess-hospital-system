@@ -30,4 +30,18 @@ export class AppointmentService {
        dataExame
       })
     }
+
+    async marcarConsulta(
+      tipoPlano: string,
+      especialidade: string,
+      local: string,
+      dataExame: string
+    ) {
+      this.firestore.collection('medical-appointments').doc(getAuth().currentUser?.uid).set({
+       tipoPlano,
+       especialidade,
+       local,
+       dataExame
+      })
+    }
 }

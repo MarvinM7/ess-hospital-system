@@ -9,12 +9,14 @@ import { ContactComponent } from './contact/contact.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { AuthGuard } from './guards/auth.guard';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { ScheduleAppointmentComponent } from './schedule-appointment/schedule-appointment.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent},
   { path: 'contato', component: ContactComponent},
   { path: 'quemsomos', component: AboutUsComponent},
-  { path: 'appointment', component: AppointmentComponent, canActivate: [AuthGuard]},
+  { path: 'appointment-exam', component: AppointmentComponent, canActivate: [AuthGuard]},
+  { path: 'appointment', component: ScheduleAppointmentComponent, canActivate: [AuthGuard]},
   { path: 'perfil', component: UserProfileComponent, canActivate: [AuthGuard]},
   { path: '**', redirectTo: ''}
 

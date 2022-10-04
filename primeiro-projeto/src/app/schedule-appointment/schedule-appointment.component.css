@@ -1,0 +1,105 @@
+html,body {
+	height: 100%;
+}
+
+body.my-appointment-page {
+	background-color: #f7f9fb;
+	font-size: 14px;
+}
+
+.my-appointment-page .brand {
+	width: 90px;
+	height: 90px;
+	overflow: hidden;
+	border-radius: 50%;
+	margin: 40px auto;
+	box-shadow: 0 4px 8px rgba(0,0,0,.05);
+	position: relative;
+	z-index: 1;
+}
+
+.my-appointment-page .brand img {
+	width: 100%;
+}
+
+.my-appointment-page .card-wrapper {
+	width: 400px;
+}
+
+.my-appointment-page .card {
+	border-color: transparent;
+	box-shadow: 0 4px 8px rgba(0,0,0,.05);
+  margin-top: 96px;
+}
+
+.my-appointment-page .card.fat {
+	padding: 10px;
+}
+
+.my-appointment-page .card .card-title {
+	margin-bottom: 30px;
+}
+
+
+.my-appointment-page .form-control {
+	border-width: 2.3px;
+  border-color: #ced4da;
+}
+
+.my-appointment-page .form-group label {
+	width: 100%;
+}
+
+.my-appointment-page .btn.btn-block {
+	padding: 12px 10px;
+}
+
+.my-appointment-page .footer {
+	margin: 40px 0;
+	color: #888;
+	text-align: center;
+}
+
+@media screen and (max-width: 425px) {
+	.my-appointment-page .card-wrapper {
+		width: 90%;
+		margin: 0 auto;
+	}
+}
+
+@media screen and (max-width: 320px) {
+	.my-appointment-page .card.fat {
+		padding: 0;
+	}
+
+	.my-appointment-page .card.fat .card-body {
+		padding: 15px;
+	}
+}
+
+.overlay {
+  background: #000;
+  height: 100vh;
+  left: 0;
+  opacity: 0.7;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 10;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay div {
+  padding: 16px;
+  border: 2px solid #000;
+  background: #fff;
+  border-radius: 8px;
+}
+
+.overlay h1 {
+  font-size: 26px;
+  color: rgb(8, 113, 21);
+}
