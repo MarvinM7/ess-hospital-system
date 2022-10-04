@@ -10,12 +10,17 @@ import { AppointmentService } from '../services/appointment.service';
 export class ScheduleAppointmentComponent implements OnInit {
   mostrarModal: boolean = false
   scheduleAppointments: any = [];
-  
+
   constructor(private appointmentService: AppointmentService, private router: Router){
     this.listarConsulta();
   }
-  
+
   ngOnInit(): void {
+    const scheduleAppointments = localStorage.getItem('scheduleAppointments')
+
+    if (scheduleAppointments) {
+      this.scheduleAppointments = JSON.parse(scheduleAppointments)
+    }
   }
 
   async marcarConsulta(
@@ -25,12 +30,26 @@ export class ScheduleAppointmentComponent implements OnInit {
     dataExame: string
   ) {
     try{
+      if (local == '' || dataExame == '') {
+        alert('Preencha todos os campos')
+        return
+      }
+
       await this.appointmentService.marcarConsulta(
         tipoPlano,
         especialidade,
         local,
         dataExame
       )
+      localStorage.setItem('scheduleAppointments', JSON.stringify([...this.scheduleAppointments, {
+        especialidade,
+        tipoPlano,
+        local,
+        dataExame
+      }]))
+
+      this.toggleModal()
+
       await this.listarConsulta();
     } catch(error){
       alert(error)
