@@ -25,13 +25,8 @@ export class ScheduleAppointmentComponent implements OnInit {
     dataExame: string
   ) {
     try{
-      if (local == '') {
-        alert('Preencha o local')
-        return
-      }
-
-      if (dataExame == '') {
-        alert('Preencha a data do exame')
+      if (local == '' || dataExame == '') {
+        alert('Preencha todos os campos')
         return
       }
 
