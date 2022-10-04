@@ -10,11 +10,11 @@ import { AppointmentService } from '../services/appointment.service';
 export class ScheduleAppointmentComponent implements OnInit {
   mostrarModal: boolean = false
   scheduleAppointments: any = [];
-  
+
   constructor(private appointmentService: AppointmentService, private router: Router){
     this.listarConsulta();
   }
-  
+
   ngOnInit(): void {
   }
 
@@ -25,12 +25,25 @@ export class ScheduleAppointmentComponent implements OnInit {
     dataExame: string
   ) {
     try{
+      if (local == '') {
+        alert('Preencha o local')
+        return
+      }
+
+      if (dataExame == '') {
+        alert('Preencha a data do exame')
+        return
+      }
+
       await this.appointmentService.marcarConsulta(
         tipoPlano,
         especialidade,
         local,
         dataExame
       )
+
+      this.toggleModal()
+
       await this.listarConsulta();
     } catch(error){
       alert(error)
