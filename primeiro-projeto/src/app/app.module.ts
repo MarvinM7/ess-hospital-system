@@ -26,6 +26,8 @@ import { AppointmentComponent } from './appointment/appointment.component';
 import { ScheduleAppointmentComponent } from './schedule-appointment/schedule-appointment.component';
 import { ContactComponent } from './contact/contact.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { RecordComponent } from './record/record.component';
+
 
 import { AuthService } from './services/firebase.service';
 import { AuthGuard } from './guards/auth.guard';
@@ -42,7 +44,8 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     ScheduleAppointmentComponent,
     ContactComponent,
     AboutUsComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    RecordComponent
   ],
   imports: [
     BrowserModule,

@@ -16,6 +16,11 @@ export class ScheduleAppointmentComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    const scheduleAppointments = localStorage.getItem('scheduleAppointments')
+
+    if (scheduleAppointments) {
+      this.scheduleAppointments = JSON.parse(scheduleAppointments)
+    }
   }
 
   async marcarConsulta(
@@ -36,6 +41,12 @@ export class ScheduleAppointmentComponent implements OnInit {
         local,
         dataExame
       )
+      localStorage.setItem('scheduleAppointments', JSON.stringify([...this.scheduleAppointments, {
+        especialidade,
+        tipoPlano,
+        local,
+        dataExame
+      }]))
 
       this.toggleModal()
 
