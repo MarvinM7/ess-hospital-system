@@ -79,6 +79,15 @@ export class AuthService {
     })
   }
 
+  async isLogged() {
+    const user = JSON.parse(localStorage.getItem('user')!);
+    if (user) {
+      this.isLoggedIn = true;
+    } else {
+      this.isLoggedIn = false;
+    }
+  }
+
   logout () {
     this.firebaseAuth.signOut();
     localStorage.removeItem('user');
