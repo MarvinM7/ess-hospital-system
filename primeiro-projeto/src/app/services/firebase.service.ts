@@ -3,7 +3,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 interface SignInProps {
-  cpf: string,
+  email: string,
   password: string,
 }
 
@@ -31,12 +31,12 @@ export class AuthService {
   ) {}
     
   async signIn({
-    cpf,
+    email,
     password
   }: SignInProps) {
-    const response = await this.firebaseAuth.signInWithEmailAndPassword(cpf + '@user.com', password);
+    const response = await this.firebaseAuth.signInWithEmailAndPassword(email, password);
 
-      this.firebaseAuth.authState.subscribe((user) =>
+      this.firebaseAuth.authState.subscribe(async (user: any) =>
       {
         if(user){
           this.userData = user;
@@ -62,7 +62,10 @@ export class AuthService {
     password,
     phone
   }: SignUpProps) {
-    const response = await this.firebaseAuth.createUserWithEmailAndPassword(cpf + '@user.com', password)
+    const response = await this.firebaseAuth.createUserWithEmailAndPassword(email, password);
+    await response.user?.updateProfile({
+      displayName: name,
+    });
 
     localStorage.setItem('user', JSON.stringify(response.user));
 
@@ -71,8 +74,18 @@ export class AuthService {
       birthday,
       email,
       phone,
-      name
+      name,
+      cpf,
     })
+  }
+
+  async isLogged() {
+    const user = JSON.parse(localStorage.getItem('user')!);
+    if (user) {
+      this.isLoggedIn = true;
+    } else {
+      this.isLoggedIn = false;
+    }
   }
 
   logout () {
@@ -80,6 +93,4 @@ export class AuthService {
     localStorage.removeItem('user');
     this.isLoggedIn = false;
   }
-
-  
 }

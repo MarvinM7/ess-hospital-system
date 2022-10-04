@@ -17,10 +17,10 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  async handleLogin(cpf: string, password: string) {
+  async handleLogin(email: string, password: string) {
     try {
       await this.authService.signIn({
-        cpf,
+        email,
         password
       })
 
