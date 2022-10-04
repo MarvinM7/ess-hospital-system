@@ -7,6 +7,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { FormsModule } from '@angular/forms';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { environment } from '../environments/environment';
 //import { HttpModule } fro
 //import { AuthenticationModule } from './authentication/authentication.module';
 
@@ -21,6 +27,9 @@ import { ScheduleAppointmentComponent } from './schedule-appointment/schedule-ap
 import { ContactComponent } from './contact/contact.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 
+import { AuthService } from './services/firebase.service';
+import { AuthGuard } from './guards/auth.guard';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +41,8 @@ import { AboutUsComponent } from './about-us/about-us.component';
     AppointmentComponent,
     ScheduleAppointmentComponent,
     ContactComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -42,10 +52,15 @@ import { AboutUsComponent } from './about-us/about-us.component';
     MatButtonModule,
     MatSidenavModule,
     MatListModule,
-    FormsModule
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireDatabaseModule
    // HttpModule
   ],
-  providers: [],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
