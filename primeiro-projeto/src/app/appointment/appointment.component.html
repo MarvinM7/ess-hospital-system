@@ -11,7 +11,7 @@
 
 <body class="my-appointment-page">
 	<section class="h-100">
-		<div class="container h-100">
+		<div class="container">
 			<div class="row justify-content-md-center h-100">
 				<div class="card-wrapper">
 					<div class="card fat">
@@ -40,7 +40,6 @@
 									<input #data type="date" class="form-control" placeholder="Data" name="dataExame" ngModel required>
 								</div>
 								
-
 								<div class="form-group m-0">
 									<button type="submit" class="btn btn-primary btn-block" (click)="toggleModal()" (click)="marcarExame(
 										tipoPlano.value,
@@ -62,6 +61,22 @@
             </div>
           </ng-container>
 				</div>
+			</div>
+
+			<div class="row">
+				<a *ngFor="let appointment of appointments;" class="col-3" style="cursor: pointer;">
+					<div class="card">
+						<div class="card-body">
+							<p>Plano: {{appointment.tipoPlano}}</p>
+							<p>Exame: {{appointment.tipoExame}}</p>
+							<p>Local: {{appointment.local}}</p>
+							<p>Data: {{appointment.dataExame}}</p>
+						</div>
+						<button class="btn btn-primary btn-block" (click)="excluirExame(appointment.id)">
+							Excluir
+						</button>
+					</div>
+				</a>
 			</div>
 		</div>
 	</section>

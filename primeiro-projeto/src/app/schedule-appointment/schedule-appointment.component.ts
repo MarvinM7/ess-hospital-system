@@ -8,10 +8,12 @@ import { AppointmentService } from '../services/appointment.service';
   styleUrls: ['./schedule-appointment.component.css']
 })
 export class ScheduleAppointmentComponent implements OnInit {
-
   mostrarModal: boolean = false
+  scheduleAppointments: any = [];
   
-  constructor(private appointmentService: AppointmentService, private router: Router){}
+  constructor(private appointmentService: AppointmentService, private router: Router){
+    this.listarConsulta();
+  }
   
   ngOnInit(): void {
   }
@@ -29,7 +31,32 @@ export class ScheduleAppointmentComponent implements OnInit {
         local,
         dataExame
       )
+      await this.listarConsulta();
+    } catch(error){
+      alert(error)
+    }
+  }
 
+  async listarConsulta() {
+    try {
+      const data: any = [];
+      (await this.appointmentService.listarConsulta())
+      .subscribe((snapshots) => snapshots.forEach((snapshot: any) => {
+        data.push({
+          id: snapshot.id,
+          ...snapshot.data(),
+        })
+      }));
+      this.scheduleAppointments = data ?? [];
+    } catch(error){
+      alert(error)
+    }
+  }
+
+  async excluirConsulta(id: string) {
+    try {
+      await this.appointmentService.excluirConsulta(id);
+      await this.listarConsulta();
     } catch(error){
       alert(error)
     }
